@@ -1,9 +1,24 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>My Discord App</title>
-  </head>
-  <body>
-    <h1>Welcome to My Discord App!</h1>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitch OAuth</title>
+</head>
+<body>
+    <h1>Twitch OAuth Token</h1>
+    <p id="token">Waiting for token...</p>
+
+    <script>
+        // Extract the access token from the URL
+        const hash = window.location.hash;
+        const token = new URLSearchParams(hash.substring(1)).get('access_token');
+        
+        if (token) {
+            document.getElementById('token').innerText = `Access Token: ${token}`;
+        } else {
+            document.getElementById('token').innerText = 'No access token found';
+        }
+    </script>
+</body>
 </html>
